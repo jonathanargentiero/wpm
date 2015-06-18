@@ -9,15 +9,36 @@ from manager.remove import *
 from manager.update import *
 from manager.purge import *
 
+
 class pluginmanager:
 	def __init__(self, arguments):
-		'''Download a file, you must catch errors yourself'''
-		'''Just a class to download files using urllib'''
+
+		self.__version__ = "0.2"
+		self.__doc__ = (Fore.MAGENTA + 'Wakanda Package Manager' + Style.RESET_ALL)+'\n'
+		self.__doc__ += (Fore.GREEN + 'version '+self.__version__ + Style.RESET_ALL)+'\n'
+		self.__doc__ += 'A package management tool\nRun "python wpm --help" for a list of commands.'
+
+		self.__help__ = (Fore.RED + 'All the commands should be run in the Wakanda/Extension directory!' + Style.RESET_ALL)+'\n'
+		self.__help__ += 'Usage:\n'
+		self.__help__ += 'python wpm [options] [arguments]\n\n'
+		self.__help__ += 'Options:\n'
+		self.__help__ += '   -h, --help        	  	print this command list\n'
+		self.__help__ += '   -v, --version        	print version\n'
+		self.__help__ += '   install [package,..]        	installs one or more packages\n'
+		self.__help__ += '   remove [package,..]        	removes one or more packages\n'
+		self.__help__ += '   update [package,..]        	updates one or more packages\n'
+		self.__help__ += '   update        	        updates all packages\n'
+		self.__help__ += '   update --self        	updates the WPM\n'
+		self.__help__ += '   purge        	        purge all packages\n'	
+		self.__help__ += '\n'+(Fore.YELLOW + 'WARNING: WPM is experimental. Version checks are lazy and manual modifications on extensions are ignored.' + Style.RESET_ALL)+'\n'
+
+
+
 		self.arguments = arguments
 
 		# script
 		if len(self.arguments) < 2:
-			print (Fore.RED + 'ERROR: INVALID COMMAND!' + Style.RESET_ALL)+' try "wpm commands".'
+			print self.__doc__
 			return None
 
 		if len(self.arguments) < 3:
@@ -40,6 +61,10 @@ class pluginmanager:
 			update(self.packages)
 		elif self.command == 'purge':
 			purge()
+		elif self.command == '-h' or self.command == '--help':
+			print self.__help__
+		elif self.command == '-v' or self.command == '--version':
+			print 'v'+self.__version__
 		else:
 			print (Fore.RED + 'COMMAND NOT IMPLEMENTED YET!' + Style.RESET_ALL)
 			return None

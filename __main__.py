@@ -5,14 +5,7 @@
 import os, sys
 from lib.pluginmanager import *
 
-__version__ = "0.1"
-
 __all__ = ("main")
-__doc__ = '''
-Wakanda Package Manager
-A package management tool.
-This is the console version
-'''
 
 def main():
 	try:

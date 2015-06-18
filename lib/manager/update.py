@@ -26,6 +26,8 @@ class update:
 								remove([subdirectory],1)
 								install([subdirectory])
 		elif packagesList[0] == '--self':
+			print __version__
+			return None
 			print (Fore.MAGENTA + 'UPDATING WPM...' + Style.RESET_ALL) 
 			distUrl = 'https://github.com/jonathanargentiero/wpm/blob/master/dist/wpm?raw=true'
 			download(distUrl,'wpm.dist')
