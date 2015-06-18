@@ -13,7 +13,7 @@ from manager.purge import *
 class pluginmanager:
 	def __init__(self, arguments):
 
-		self.__version__ = "0.2.1"
+		self.__version__ = "0.2.2"
 		self.__doc__ = (Fore.MAGENTA + 'Wakanda Package Manager' + Style.RESET_ALL)+'\n'
 		self.__doc__ += (Fore.GREEN + 'version '+self.__version__ + Style.RESET_ALL)+'\n'
 		self.__doc__ += 'A package management tool\nRun "python wpm --help" for a list of commands.'

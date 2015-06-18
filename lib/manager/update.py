@@ -29,7 +29,8 @@ class update:
 			print (Fore.MAGENTA + 'UPDATING WPM...' + Style.RESET_ALL) 
 			distUrl = 'https://github.com/jonathanargentiero/wpm/blob/master/dist/wpm?raw=true'
 			download(distUrl,'wpm.dist')
-			os.rename('wpm.dist','wpm')
+			os.remove('wpm')
+			shutil.move('wpm.dist','wpm')
 			print (Fore.GREEN + 'UPDATED!' + Style.RESET_ALL)
 		else:
 			remove(packagesList,1)
