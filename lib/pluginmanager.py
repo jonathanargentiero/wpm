@@ -18,7 +18,7 @@ class pluginmanager:
 		# script
 		if len(self.arguments) < 2:
 			print (Fore.RED + 'ERROR: INVALID COMMAND!' + Style.RESET_ALL)+' try "wpm commands".'
-			return 1
+			return None
 
 		if len(self.arguments) < 3:
 			if self.arguments[1] == 'install' or self.arguments[1] == 'remove' :
