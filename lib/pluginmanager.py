@@ -13,7 +13,7 @@ from manager.list import *
 class pluginmanager:
 	def __init__(self, arguments):
 
-		self.__version__ = "0.3.1"
+		self.__version__ = "0.3.2"
 		self.__doc__ = (Fore.MAGENTA + 'Wakanda Package Manager' + Style.RESET_ALL)+'\n'
 		self.__doc__ += (Fore.GREEN + 'version '+self.__version__ + Style.RESET_ALL)+'\n'
 		self.__doc__ += 'A package management tool\nRun "python wpm --help" for a list of commands.'
@@ -24,6 +24,8 @@ class pluginmanager:
 		self.__help__ += 'Options:\n'
 		self.__help__ += '   -h, --help        	  	print this command list\n'
 		self.__help__ += '   -v, --version        	print version\n'
+		self.__help__ += '   list     			list all packages installed in the directory\n'	
+		self.__help__ += '   list --all        	        list all packages available on the addons repository\n'	
 		self.__help__ += '   install [package,..]        	installs one or more packages\n'
 		self.__help__ += '   remove [package,..]        	removes one or more packages\n'
 		self.__help__ += '   update [package,..]        	updates one or more packages\n'
