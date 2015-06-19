@@ -8,11 +8,12 @@ from manager.install import *
 from manager.remove import *
 from manager.update import *
 from manager.purge import *
+from manager.list import *
 
 class pluginmanager:
 	def __init__(self, arguments):
 
-		self.__version__ = "0.2.2"
+		self.__version__ = "0.3.0"
 		self.__doc__ = (Fore.MAGENTA + 'Wakanda Package Manager' + Style.RESET_ALL)+'\n'
 		self.__doc__ += (Fore.GREEN + 'version '+self.__version__ + Style.RESET_ALL)+'\n'
 		self.__doc__ += 'A package management tool\nRun "python wpm --help" for a list of commands.'
@@ -45,19 +46,19 @@ class pluginmanager:
 				print (Fore.YELLOW + 'YELLOW: NO PACKAGES SPECIFIED!' + Style.RESET_ALL) +' add at least one package name.'
 				return None
 
-		self.packages = []
+		self.agvs = []
 
 		for (i,argv) in enumerate(arguments):
 			if i > 1:
-				self.packages.append(argv)
+				self.agvs.append(argv)
 
 		self.command = arguments[1]
 		if self.command == 'install':
-			install(self.packages)
+			install(self.agvs)
 		elif self.command == 'remove': 
-			remove(self.packages,None)
+			remove(self.agvs,None)
 		elif self.command == 'update':
-			update(self.packages)
+			update(self.agvs)
 		elif self.command == 'purge':
 			print (Fore.YELLOW + 'WARNING!' + Style.RESET_ALL)+' this will remove all the installed packages in this folder! Continue? [y/n]'
 			choice = raw_input().lower()
@@ -69,6 +70,8 @@ class pluginmanager:
 			   sys.stdout.write((Fore.RED + 'UNVALID!' + Style.RESET_ALL)+" please respond with 'yes' or 'no'\n")
 			   return None
 
+		elif self.command == 'list':
+			list(self.agvs)
 		elif self.command == '-h' or self.command == '--help':
 			print self.__help__
 		elif self.command == '-v' or self.command == '--version':
