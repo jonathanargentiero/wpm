@@ -9,7 +9,6 @@ from manager.remove import *
 from manager.update import *
 from manager.purge import *
 
-
 class pluginmanager:
 	def __init__(self, arguments):
 
@@ -60,7 +59,16 @@ class pluginmanager:
 		elif self.command == 'update':
 			update(self.packages)
 		elif self.command == 'purge':
-			purge()
+			print (Fore.YELLOW + 'WARNING!' + Style.RESET_ALL)+' this will remove all the installed packages in this folder! Continue? [y/n]'
+			choice = raw_input().lower()
+			if choice in ['yes','y', 'ye', '']:
+			   purge()
+			elif choice in ['no','n']:
+			   return None
+			else:
+			   sys.stdout.write((Fore.RED + 'UNVALID!' + Style.RESET_ALL)+" please respond with 'yes' or 'no'\n")
+			   return None
+
 		elif self.command == '-h' or self.command == '--help':
 			print self.__help__
 		elif self.command == '-v' or self.command == '--version':
