@@ -16,7 +16,7 @@ class update:
 			for subdirectory in subdirectories:
 				if os.path.isdir(subdirectory) and subdirectory != 'lib':
 					for file in os.listdir(subdirectory):
-						if file == 'manifest.json':
+						if file == 'manifest.json' or file == 'package.json':
 							repoUrl = "http://addons.wakanda.org/rest/Addons/?&$filter=%27name%20==%20:1%27&$params=%27[%22"+subdirectory+"%22]%27"
 							repoResponse = urllib2.urlopen(repoUrl)
 							responseText = repoResponse.read()
