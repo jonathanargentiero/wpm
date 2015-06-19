@@ -13,12 +13,12 @@ from manager.list import *
 class pluginmanager:
 	def __init__(self, arguments):
 
-		self.__version__ = "0.3.0"
+		self.__version__ = "0.3.1"
 		self.__doc__ = (Fore.MAGENTA + 'Wakanda Package Manager' + Style.RESET_ALL)+'\n'
 		self.__doc__ += (Fore.GREEN + 'version '+self.__version__ + Style.RESET_ALL)+'\n'
 		self.__doc__ += 'A package management tool\nRun "python wpm --help" for a list of commands.'
 
-		self.__help__ = (Fore.RED + 'All the commands should be run in the Wakanda/Extension directory!' + Style.RESET_ALL)+'\n'
+		self.__help__ = (Fore.RED + 'All the commands should be run in the directory where you want to manage packages!' + Style.RESET_ALL)+'\n'
 		self.__help__ += 'Usage:\n'
 		self.__help__ += 'python wpm [options] [arguments]\n\n'
 		self.__help__ += 'Options:\n'
@@ -30,7 +30,7 @@ class pluginmanager:
 		self.__help__ += '   update        	        updates all packages\n'
 		self.__help__ += '   update --self        	updates the WPM\n'
 		self.__help__ += '   purge        	        purge all packages\n'	
-		self.__help__ += '\n'+(Fore.YELLOW + 'WARNING: WPM is experimental. Version checks are lazy and manual modifications on extensions are ignored.' + Style.RESET_ALL)+'\n'
+		self.__help__ += '\n'+(Fore.YELLOW + 'WARNING: WPM is experimental. Version checks are lazy and manual modifications on extensions/widgets are ignored.' + Style.RESET_ALL)+'\n'
 
 
 
